@@ -182,7 +182,7 @@ See [DEVELOPER.md](./DEVELOPER.md) for full MIoT protocol reference.
 
 ### Room IDs Not Found / ID комнат не найдены
 
-**Solution 1:** Use VEVS logs from Mi Home app. Look for `get-preference-ii` response:
+**Solution 1:** Use [Mi Home by VEVS](https://rumihome.ru/prilozheniya/mihome-vevs) app logs. Look for `get-preference-ii` response:
 ```json
 {"result":{"out":["[\"1_12_1_3_2_1_1_0\",\"1_10_1_3_2_1_1_1\"]"]}}
 ```
