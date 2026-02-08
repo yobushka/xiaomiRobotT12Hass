@@ -1,3 +1,8 @@
+> **⚠️ АРХИВ / HISTORY FILE**
+> Этот файл является частью истории разработки и может содержать устаревшие данные.
+
+---
+
 # Рекомендуемые действия
 
 ## 🔍 Критические проверки
@@ -51,7 +56,7 @@ docker logs -f homeassistant | grep -i "xiaomi\|vacuum\|room\|segment"
 
 **Команда:**
 ```bash
-TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+TOKEN="REDACTED_LONG_LIVED_ACCESS_TOKEN"
 
 curl -X GET http://localhost:8123/api/states/vacuum.xiaomi_b106bk_807e_robot_cleaner \
   -H "Authorization: Bearer $TOKEN" | jq

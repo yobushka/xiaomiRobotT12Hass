@@ -1,69 +1,27 @@
-# ===========================================
-# Скрипты управления пылесосом Xiaomi T12
-# ===========================================
+# =================================================================
+# ВЕРИФИЦИРОВАННЫЕ СКРИПТЫ ДЛЯ XIAOMI T12 (b106bk)
+# Дата верификации: 2026-02-08
+# Метод уборки комнат: Service 7, Action 3 (set-room-clean)
+# =================================================================
 
-# Полная уборка
-vacuum_clean_all:
-  alias: "🏠 Полная уборка"
-  icon: mdi:robot-vacuum
-  sequence:
-    - service: button.press
-      target:
-        entity_id: button.xiaomi_b106bk_807e_start_sweep
+# --- БАЗОВОЕ УПРАВЛЕНИЕ ---
 
-# Уборка с влажной уборкой
-vacuum_clean_sweep_mop:
-  alias: "💧 Уборка с влажной уборкой"
-  icon: mdi:water
-  sequence:
-    - service: button.press
-      target:
-        entity_id: button.xiaomi_b106bk_807e_start_sweep_mop
-
-# Только подметание
-vacuum_clean_sweep_only:
-  alias: "🧹 Только подметание"
-  icon: mdi:broom
-  sequence:
-    - service: button.press
-      target:
-        entity_id: button.xiaomi_b106bk_807e_start_only_sweep
-
-# Только влажная уборка
-vacuum_clean_mop_only:
-  alias: "💦 Только влажная уборка"
-  icon: mdi:water-outline
-  sequence:
-    - service: button.press
-      target:
-        entity_id: button.xiaomi_b106bk_807e_start_mop
-
-# Возврат на базу
-vacuum_return_to_base:
-  alias: "🔌 Вернуться на базу"
-  icon: mdi:home
-  sequence:
-    - service: button.press
-      target:
-        entity_id: button.xiaomi_b106bk_807e_start_charge
-
-# Остановить уборку
 vacuum_stop:
   alias: "⏹️ Остановить уборку"
   icon: mdi:stop
   sequence:
-    - service: button.press
-      target:
-        entity_id: button.xiaomi_b106bk_807e_stop_sweeping
+    - service: xiaomi_miot.call_action
+      data:
+        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
+        siid: 2
+        aiid: 2
 
-# ===========================================
-# Уборка по комнатам (ID 10-20)
-# ЗАМЕНИТЕ НАЗВАНИЯ после определения комнат!
-# ===========================================
+# --- УБОРКА ПО КОМНАТАМ ---
+# Используется проверенный метод siid: 7, aiid: 3. 
+# Params: [ID, Mode, Operation]. Mode 0=Normal, Operation 1=Start.
 
-vacuum_clean_room_10:
-  alias: "🧸 Детская (ID 10)"
-  icon: mdi:door
+vacuum_clean_nursery:
+  alias: "🧸 Детская (Room 10)"
   sequence:
     - service: xiaomi_miot.call_action
       data:
@@ -72,9 +30,8 @@ vacuum_clean_room_10:
         aiid: 3
         params: ["10", 0, 1]
 
-vacuum_clean_room_11:
-  alias: "🍳 Кухня (ID 11)"
-  icon: mdi:door
+vacuum_clean_kitchen:
+  alias: "🍳 Кухня (Room 11)"
   sequence:
     - service: xiaomi_miot.call_action
       data:
@@ -83,9 +40,8 @@ vacuum_clean_room_11:
         aiid: 3
         params: ["11", 0, 1]
 
-vacuum_clean_room_12:
-  alias: "🛏️ Спальня (ID 12)"
-  icon: mdi:door
+vacuum_clean_bedroom:
+  alias: "🛏️ Спальня (Room 12)"
   sequence:
     - service: xiaomi_miot.call_action
       data:
@@ -94,9 +50,8 @@ vacuum_clean_room_12:
         aiid: 3
         params: ["12", 0, 1]
 
-vacuum_clean_room_13:
-  alias: "🚶 Коридор (ID 13)"
-  icon: mdi:door
+vacuum_clean_corridor:
+  alias: "🚶 Коридор (Room 13)"
   sequence:
     - service: xiaomi_miot.call_action
       data:
@@ -105,105 +60,24 @@ vacuum_clean_room_13:
         aiid: 3
         params: ["13", 0, 1]
 
-vacuum_clean_room_14:
-  alias: "🚪 Комната 14"
-  icon: mdi:door
+# --- НАСТРОЙКИ (ПРИМЕНЯТЬ ПЕРЕД УБОРКОЙ) ---
+
+vacuum_set_suction_turbo:
+  alias: "🌪️ Мощность: Турбо"
   sequence:
-    - service: xiaomi_miot.call_action
+    - service: xiaomi_miot.set_miot_property
       data:
         entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
         siid: 7
-        aiid: 3
-        params: ["14", 0, 1]
+        piid: 5
+        value: 3
 
-vacuum_clean_room_15:
-  alias: "🚪 Комната 15"
-  icon: mdi:door
+vacuum_set_water_high:
+  alias: "💧 Вода: Максимум"
   sequence:
-    - service: xiaomi_miot.call_action
+    - service: xiaomi_miot.set_miot_property
       data:
         entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
         siid: 7
-        aiid: 3
-        params: ["15", 0, 1]
-
-vacuum_clean_room_16:
-  alias: "🚪 Комната 16"
-  icon: mdi:door
-  sequence:
-    - service: xiaomi_miot.call_action
-      data:
-        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
-        siid: 7
-        aiid: 3
-        params: ["16", 0, 1]
-
-vacuum_clean_room_17:
-  alias: "🚪 Комната 17"
-  icon: mdi:door
-  sequence:
-    - service: xiaomi_miot.call_action
-      data:
-        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
-        siid: 7
-        aiid: 3
-        params: ["17", 0, 1]
-
-vacuum_clean_room_18:
-  alias: "🚪 Комната 18"
-  icon: mdi:door
-  sequence:
-    - service: xiaomi_miot.call_action
-      data:
-        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
-        siid: 7
-        aiid: 3
-        params: ["18", 0, 1]
-
-vacuum_clean_room_19:
-  alias: "🚪 Комната 19"
-  icon: mdi:door
-  sequence:
-    - service: xiaomi_miot.call_action
-      data:
-        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
-        siid: 7
-        aiid: 3
-        params: ["19", 0, 1]
-
-vacuum_clean_room_20:
-  alias: "🚪 Комната 20"
-  icon: mdi:door
-  sequence:
-    - service: xiaomi_miot.call_action
-      data:
-        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
-        siid: 7
-        aiid: 3
-        params: ["20", 0, 1]
-
-# ===========================================
-# Уборка нескольких комнат (примеры)
-# ===========================================
-
-vacuum_clean_rooms_10_11:
-  alias: "🏘️ Комнаты 10+11"
-  icon: mdi:floor-plan
-  sequence:
-    - service: xiaomi_miot.call_action
-      data:
-        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
-        siid: 2
-        aiid: 7
-        params: ["10,11"]
-
-vacuum_clean_rooms_10_11_12:
-  alias: "🏘️ Комнаты 10+11+12"
-  icon: mdi:floor-plan
-  sequence:
-    - service: xiaomi_miot.call_action
-      data:
-        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
-        siid: 2
-        aiid: 7
-        params: ["10,11,12"]
+        piid: 6
+        value: 2

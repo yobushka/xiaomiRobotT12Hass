@@ -1,3 +1,9 @@
+---
+Level: 2 (Operational)
+Category: Configuration
+Status: Verified
+---
+
 # 🗺️ Финальная карта комнат
 
 **Дата:** 2026-02-08

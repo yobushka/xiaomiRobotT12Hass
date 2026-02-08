@@ -1,0 +1,41 @@
+# Auto-generated configuration
+
+vacuum_clean_room_10:
+  alias: "Уборка комнаты 10"
+  sequence:
+    - service: xiaomi_miot.call_action
+      data:
+        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
+        siid: 7
+        aiid: 3
+        params: ["10", 0, 1]
+
+vacuum_clean_room_11:
+  alias: "Уборка комнаты 11"
+  sequence:
+    - service: xiaomi_miot.call_action
+      data:
+        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
+        siid: 7
+        aiid: 3
+        params: ["11", 0, 1]
+
+vacuum_clean_room_12:
+  alias: "Уборка комнаты 12"
+  sequence:
+    - service: xiaomi_miot.call_action
+      data:
+        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
+        siid: 7
+        aiid: 3
+        params: ["12", 0, 1]
+
+vacuum_clean_room_13:
+  alias: "Уборка комнаты 13"
+  sequence:
+    - service: xiaomi_miot.call_action
+      data:
+        entity_id: vacuum.xiaomi_b106bk_807e_robot_cleaner
+        siid: 7
+        aiid: 3
+        params: ["13", 0, 1]
