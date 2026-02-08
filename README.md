@@ -38,7 +38,12 @@ sequenceDiagram
 **How to use:**
 1. Copy `.env_example` to `.env` and fill in your Token and IP.
 2. Run `python3 setup_vacuum.py`.
-3. The script will verify your setup and generate `scripts_generated.yaml`.
+3. Follow the interactive prompts:
+    - **Phase 0**: Approve cleanup of old scripts.
+    - **Phase 1**: Automatic HA diagnostics.
+    - **Phase 2**: Enter Room IDs and Names.
+    - **Phase 3**: Choose your Power/Water profile.
+4. The script will generate `scripts_generated.yaml`.
 
 ### ✅ The Solution
 To clean specific rooms, use **Service 7 (Sweep)** and **Action 3 (set-room-clean)**.
