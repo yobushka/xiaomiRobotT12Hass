@@ -6,6 +6,10 @@
 
 **Last Updated:** 2026-02-09
 
+**Product Links:**
+[Official Xiaomi](https://www.mi.com/global/product/xiaomi-robot-vacuum-t12/) |
+[Ozon.ru](https://www.ozon.ru/product/xiaomi-t12-eu-bhr7726gl-robot-pylesos-suhaya-i-vlazhnaya-uborka-chernyy-1554670101/)
+
 ---
 
 ## Table of Contents / Оглавление
