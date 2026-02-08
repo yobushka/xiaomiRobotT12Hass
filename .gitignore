@@ -1,3 +1,4 @@
 .env
 CONTEXTFILE
 ROADMAP
+__pycache__
